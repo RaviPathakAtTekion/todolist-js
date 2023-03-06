@@ -13,11 +13,6 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   const addButton = document.createElement("button");
   const timeStamp = document.createElement("p");
 
-  // divNumber++;
-
-  // increaseDivNumber();
-  // newInitialId === Number(anyId) ? changeId() : anyId;
-
   let newInitialId = -1;
 
   if (newInitialId === anyId) {
@@ -25,10 +20,6 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   } else {
     newInitialId = anyId;
   }
-  // console.log(newInitialId);
-
-  // console.log(newInitialId);
-  // console.log(newDivNumber, divNumber);
 
   outerDiv.id = `div${newInitialId}`;
   outerDiv.className = "note--container";
@@ -40,7 +31,7 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   titleInput.value = "";
 
   if (newInitialId === anyId) {
-    if (note["title"].length === 0) {
+    if (note !== null && note["title"].length === 0) {
       titleInput.placeholder = "Title";
     } else {
       titleInput.value = note["title"];
@@ -76,9 +67,6 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   outerDiv.appendChild(innerDiv);
 
   noteAddingDiv.appendChild(outerDiv);
-  // console.log(outerDiv.childNodes);
-  // outerDiv.childNodes[1].value = 'eyrugb';
-
   
   if (anyId === newInitialId) {
     setValuesForExistingNote(newInitialId, outerDiv, note);

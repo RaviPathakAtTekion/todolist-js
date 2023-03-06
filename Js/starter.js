@@ -7,9 +7,6 @@ import { getNumberOfNotes } from "./noOfNotes.js";
 import timeStamp from "./getTimeStamp.js";
 import eventDelegation from "./eventDelegation.js";
 import showDataIfPresent from "./showDataifPresent.js";
-// import { setNoteToArray } from "./getAndSetLocalStorage.js";
-
-// showDataIfPresent() === false ? '' : 
 
 NoteArray.length > 0 ? showDataIfPresent() : '';
 
@@ -21,11 +18,3 @@ createNote.addEventListener("click", () => {
 });
 
 getNumberOfNotes();
-
-
-// const initialTimeRender = () => {
-//   const timeObject = timeStamp();
-//   timePara.innerHTML = `${timeObject.time} :: ${timeObject.date}`;
-// };
-
-// initialTimeRender();

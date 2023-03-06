@@ -1,32 +1,25 @@
 import { addMessageToTask, addTitleToNote } from "./getAndSetLocalStorage.js";
 
-const getInputContent = (inputTag, event) => {
-    if(event.key === 'Enter'){
+const getInputContent = (event, inputTag) => {
+  if (event.key === "Enter") {
+    if (inputTag.classList.contains("specific-note__style")) {
+      event.target.blur();
 
-        // console.log("enter accepted", event.key);
-        
-        // e.target.classList.add('dont--edit--title');
-        event.target.setAttribute('readonly', true);
+      const divId =
+        event.target.parentElement.parentElement.parentElement.dataset.setId;
 
-        inputTag.addEventListener("dblclick", (e) => {
-            e.target.removeAttribute('readonly');
-        })
-        if(event.target.parentElement.className === "notes--input"){
-            const divId = event.target.parentElement.parentElement.parentElement.dataset.setId;
-            const taskId = event.target.parentElement.id;
-            // console.log(taskId, divId);
-            
-            const message = event.target.value.toString();
-            addMessageToTask(divId, taskId, message);
-            // console.log(event.target.value);
-        } else {
+      const taskId = event.target.parentElement.id;
 
-            const divId = event.target.parentElement.dataset.setId;
-            const message = event.target.value.toString();
-            addTitleToNote(divId, message);
-        }
-        
+      const message = event.target.value.toString();
+      addMessageToTask(divId, taskId, message);
+    } else {
+      event.target.blur();
+
+      const divId = event.target.parentElement.dataset.setId;
+      const message = event.target.value.toString();
+      addTitleToNote(divId, message);
     }
-}
+  }
+};
 
 export default getInputContent;

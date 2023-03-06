@@ -8,18 +8,11 @@ const addTask = (e) => {
   const checkbox = document.createElement("input");
   const input = document.createElement("input");
 
-  //   console.log(e.target);
-
   div.className = "notes--input";
   const workingDiv = e.target.parentElement.parentElement.dataset.setId;
-  // console.log(workingDiv);
-
-  //   console.log(e.target.parentElement.parentElement.childNodes[3]);
-  //   console.log(currentTaskNumber);
 
   let currentTaskNumber = currentTaskNumberFunction(e);
   div.id = `div${workingDiv}task${currentTaskNumber}`;
-  // console.log(currentTaskNumber);
 
   checkbox.type = "checkbox";
   checkbox.className = "note--checkbox";
@@ -38,18 +31,11 @@ const addTask = (e) => {
 
   let taskAddingDiv = document.getElementById(`divAppender${currentDiv}`);
 
-  // let taskAddingDiv = document.getElementById(`divAppender${currentDiv}`);
-  // console.log(taskAddingDiv, currentDiv);
-
   const insertingPosition = insertTask(e);
 
   taskAddingDiv.insertBefore(div, insertingPosition);
 
-  // console.log(taskAddingDiv);
-  // taskAddingDiv.appendChild(div);
-
   addTasksToNoteArray(workingDiv, div.id);
-  // console.log(workingDiv, div.id);
 };
 
 export default addTask;
