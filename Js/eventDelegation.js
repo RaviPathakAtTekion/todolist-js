@@ -17,11 +17,8 @@ const eventDelegation = () => {
       addTask(e);
     } else if (e.target.className === "close--note") {
       let id = e.target.parentElement.dataset.setId;
-     console.log(e.target.parentElement);
-     
-      // const closeNoteButton = document.getElementsByClassName("close--note")[0];
       removeNote(e, id);
-      // closeNoteButton.onclick = removeNote(e, id);
+
     } else if (e.target.className === "note--checkbox") {
       e.target.parentElement.childNodes[1].innerText !== null
         ? e.target.checked !== false

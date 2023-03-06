@@ -31,7 +31,7 @@ const addTask = (e) => {
 
   let taskAddingDiv = document.getElementById(`divAppender${currentDiv}`);
 
-  const insertingPosition = insertTask(e);
+  const insertingPosition = insertTask(e.target);
 
   taskAddingDiv.insertBefore(div, insertingPosition);
 

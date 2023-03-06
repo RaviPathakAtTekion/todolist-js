@@ -1,3 +1,4 @@
+import insertTask from "./insertTask.js";
 
 const setValuesForExistingNote = (Id, mainDiv, note) => {
 
@@ -40,7 +41,10 @@ const setValuesForExistingNote = (Id, mainDiv, note) => {
               `divAppender${currentDiv}`
             );
 
-            taskAddingDiv.appendChild(div);
+            const insertingPosition = insertTask(mainDiv.childNodes[2].childNodes[0]); 
+
+            taskAddingDiv.insertBefore(div, insertingPosition);
+            // taskAddingDiv.appendChild(div);
           }
         });
       }
