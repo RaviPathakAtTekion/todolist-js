@@ -4,7 +4,7 @@ import addNote from "./addNote.js";
 const showDataIfPresent = () => {
 
     NoteArray.map((note) => {
-        if(note !== null && note['status'] === true){
+        if(note !== null){
             addNote(note['timeStamp'], note['id'], note);
         }
     });

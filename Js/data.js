@@ -32,7 +32,7 @@ const trueNotes = () => {
 
 const changeId = () => {
 
-  return NoteArray === null ? 0 : NoteArray.length;
+  return NoteArray === null ? 0 : NoteArray.length + 1;
 }
 
 const changeTaskDiv = (value) => {

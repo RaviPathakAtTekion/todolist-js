@@ -4,34 +4,27 @@ const changeTaskStatus = (e, status) => {
   if (status) {
     e.target.parentElement.childNodes[1].classList.add("strike--task");
 
-    NoteArray.map(note => {
-        if(note !== null && note['task'].length > 0){
-            note['task'].map(ele => {
-                if(ele['content'].length > 0){
-                    if(ele['id'] === e.target.parentElement.id.toString() && ele['completedStatus'] === false)
-                    ele['completedStatus'] = true;
-                }
-            })
-        }
-        
-    });
+    const divId = e.target.parentElement.parentElement.parentElement.dataset.setId;
+    const taskId = e.target.parentElement.childNodes[1].id.substring(4);
+    
+    if(NoteArray[divId - 1]['task'][taskId]['completedStatus'] === false){
+        NoteArray[divId - 1]['task'][taskId]['completedStatus'] = true;
+    }
+    
+
     localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
     e.target.parentElement.childNodes[0].checked = true;
     
   } else {
     e.target.parentElement.childNodes[1].classList.remove("strike--task");
 
-    NoteArray.map(note => {
-        if(note !== null && note['task'].length > 0){
-            note['task'].map(ele => {
-                if(ele['content'].length > 0){
-                    if(ele['id'] === e.target.parentElement.id.toString()  && ele['completedStatus'] === true)
-                    ele['completedStatus'] = false;
-                }
-            })
-        }
-        
-    })
+    const divId = e.target.parentElement.parentElement.parentElement.dataset.setId;
+    const taskId = e.target.parentElement.childNodes[1].id.substring(4);
+    
+    if(NoteArray[divId - 1]['task'][taskId]['completedStatus'] === true){
+        NoteArray[divId - 1]['task'][taskId]['completedStatus'] = false;
+    }
+
     localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
     e.target.parentElement.childNodes[0].checked = false;
   }

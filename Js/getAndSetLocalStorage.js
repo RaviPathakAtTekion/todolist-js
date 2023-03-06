@@ -1,59 +1,35 @@
 import { NoteArray, changeId } from "./data.js";
 
 const setNoteToArray = (mainDiv, noteMakingTime) => {
-  
   const Note = makeNoteObject(mainDiv.dataset.setId, noteMakingTime);
   changeId();
 
   NoteArray.push(Note);
 
-  localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
-
+  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
 };
 
 const addTasksToNoteArray = (workingNoteId, divId) => {
-
   const newTask = {
     id: divId,
-    content: '',
-    completedStatus : false,
+    content: "",
+    completedStatus: false,
   };
-
-  NoteArray.map((ele) => {
-    if (ele !== null && ele['id'] === workingNoteId) {
-      ele['task'].push(newTask);
-    }
-  });
-  localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
-
+  NoteArray[workingNoteId - 1]['task'].push(newTask);
+  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  
 };
 
-const addTitleToNote = (divId, title = '') => {
+const addTitleToNote = (divId, title = "") => {
+  NoteArray[divId - 1]["title"] = title;
+  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+};
 
-    NoteArray.map(ele => {
-        if(ele !== null && ele['id'] ===  divId){
-            
-            ele['title'] = title;
-        }
-    });
-    localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
+const addMessageToTask = (divId, taskNumber, message = "") => {
+  NoteArray[divId - 1]["task"][taskNumber - 1]["content"] = message;
 
-}
-
-const addMessageToTask = (divId, taskId, message = '') => {
-    NoteArray.map(ele => {
-        if(ele !== null && ele['id'] === divId){
-            ele['task'].map(task => {
-
-                if(task['id'] === taskId){
-                    task['content'] = message;
-                }
-            });
-        }
-    });
-    localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
-
-}
+  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+};
 
 const removeNoteFromArray = () => {};
 
@@ -62,13 +38,18 @@ const makeNoteObject = (setId, timeObject) => {
     title: ``,
     id: setId,
     task: [],
-    status : true,
-    timeStamp : {
-      time : timeObject.time,
-      date : timeObject.date,
-    }
+    timeStamp: {
+      time: timeObject.time,
+      date: timeObject.date,
+    },
   };
   return newNote;
 };
 
-export { setNoteToArray, removeNoteFromArray, addTasksToNoteArray, addTitleToNote, addMessageToTask };
+export {
+  setNoteToArray,
+  removeNoteFromArray,
+  addTasksToNoteArray,
+  addTitleToNote,
+  addMessageToTask,
+};

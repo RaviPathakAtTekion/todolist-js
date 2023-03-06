@@ -12,6 +12,7 @@ const addTask = (e) => {
   const workingDiv = e.target.parentElement.parentElement.dataset.setId;
 
   let currentTaskNumber = currentTaskNumberFunction(e);
+  
   div.id = `div${workingDiv}task${currentTaskNumber}`;
 
   checkbox.type = "checkbox";

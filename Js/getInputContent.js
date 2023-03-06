@@ -8,10 +8,10 @@ const getInputContent = (event, inputTag) => {
       const divId =
         event.target.parentElement.parentElement.parentElement.dataset.setId;
 
-      const taskId = event.target.parentElement.id;
-
+      const taskNumber = event.target.id.substring(4);
+      
       const message = event.target.value.toString();
-      addMessageToTask(divId, taskId, message);
+      addMessageToTask(divId, taskNumber, message);
     } else {
       event.target.blur();
 
