@@ -1,0 +1,205 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.header--container {
+  padding: 0.5em;
+  border: 1px solid rgb(106, 222, 177);
+  background: url("./wallpapersden.com_artistic-landscape-view_1920x1080.jpg")
+    no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  height: 20vh;
+}
+
+.header--container > h1 {
+  font-size: 3em;
+  margin: 0.5em;
+  align-self: center;
+  text-align: center;
+  color: rgb(220, 123, 219);
+  text-shadow: 2px 2px 2px lightgray;
+}
+
+.header--container > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5vh;
+}
+
+.list--add--button__style {
+  border: 1px solid rgb(207, 180, 224);
+  background-color: transparent;
+  padding: 0.5em;
+  color: black;
+  margin: 0.5em;
+  font-size: 1.25em;
+  width: 25%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.list--add--button__style:hover {
+  background: linear-gradient(rgb(217, 189, 234), rgb(180, 167, 224));
+  cursor: pointer;
+}
+
+#divStarter {
+  overflow-x: scroll;
+  padding: 1em;
+  margin: 1em;
+  width: 99vw;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50vh;
+  /* background-color: rgb(205, 242, 237); */
+}
+
+.all--notes--title--style {
+  padding: 1em;
+  margin: 1em;
+}
+
+.all--notes--title--style > h3 {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 600;
+  color: rgb(221, 87, 170);
+  text-shadow: 1px 1px 1px lightcoral;
+}
+
+.note--container {
+  border: 1px solid black;
+  padding: 0.5em;
+  min-width: 45em;
+  margin: 1em;
+  border-radius: 10px;
+  overflow-y: scroll;
+  box-shadow: 15px 10px 5px grey;
+}
+
+.title--input__style {
+  border: none;
+  background: transparent;
+  text-align: center;
+  color: rgb(140, 28, 231);
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 3em;
+  width: fit-content;
+  width: 85%;
+  outline: none;
+}
+
+.dont--edit--title {
+  pointer-events: none;
+}
+
+.close--note {
+  color: black;
+  background: transparent;
+  border: 1px solid lightslategray;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  top: -4em;
+  right: -1em;
+}
+
+.close--note:hover {
+  background-color: rgb(152, 147, 147);
+  cursor: pointer;
+}
+
+.title--input__style:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px lightgray;
+}
+
+.notes--input {
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  outline: none;
+}
+
+.note--checkbox {
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.specific-note__style {
+  margin: 0.5em;
+  padding: 0.75em;
+  width: 80%;
+  font-size: 1.5em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.specific-note__style:focus {
+  outline: none;
+  border: 0.5px solid black;
+  box-shadow: 5px 5px 5px lightslategrey;
+}
+
+.strike--task {
+  text-decoration: line-through;
+}
+
+.button--time--style {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.addButton--note {
+  border: 1px solid rgb(222, 139, 245);
+  border-radius: 5px;
+  background-color: transparent;
+  width: 25%;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0.5em;
+  align-self: center;
+}
+
+.addButton--note:hover {
+  background-color: rgb(222, 199, 232);
+  cursor: pointer;
+}
+
+.getTime {
+  font-size: 1.5em;
+  font-weight: 500;
+  border: 0.5px solid lightgrey;
+  border-radius: 5px;
+}
+
+.footer--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  margin: 1em;
+  height: 10vh;
+  background: linear-gradient(rgb(238, 228, 242), rgb(234, 164, 198));
+  border-radius: 5px;
+}
+
+.footer--container > h4 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
