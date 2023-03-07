@@ -1,4 +1,4 @@
-import { noOfNotes, changeId, trueNotes } from "./data.js";
+import { noOfNotes, trueNotes } from "./data.js";
 
 const getNumberOfNotes = () => {
   let counNotes = trueNotes();

@@ -1,7 +1,7 @@
 import { noteAddingDiv, changeId } from "./data.js";
 import { getNumberOfNotes } from "./noOfNotes.js";
 import { setNoteToArray } from "./getAndSetLocalStorage.js";
-import setValuesForExistingNote from "./setValuesForExistingNote.js";
+import setExistingData from "./setExistingData.js";
 
 const addNote = (noteMakingTime, anyId, note = "") => {
   const outerDiv = document.createElement("div");
@@ -50,7 +50,7 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   timeStamp.innerText = ``;
   timeStamp.className = `getTime`;
 
-  timeStamp.innerText = `${noteMakingTime.time} :: ${noteMakingTime.date}`;
+  timeStamp.innerText = `${noteMakingTime.date} : ${noteMakingTime.time}`;
 
   addButton.className = "addButton--note";
   addButton.id = `addTask${newInitialId}`;
@@ -69,7 +69,7 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   noteAddingDiv.appendChild(outerDiv);
   
   if (anyId === newInitialId) {
-    setValuesForExistingNote(newInitialId, outerDiv, note);
+    setExistingData(newInitialId, outerDiv, note);
   } else {
     setNoteToArray(outerDiv, noteMakingTime);
   }

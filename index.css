@@ -9,57 +9,40 @@
 }
 
 .header--container {
-  padding: 0.5em;
-  border: 1px solid rgb(106, 222, 177);
+  padding: 2em;
   background: url("./wallpapersden.com_artistic-landscape-view_1920x1080.jpg")
     no-repeat;
   background-size: cover;
-  border-radius: 5px;
-  height: 20vh;
+  border-radius: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 }
 
 .header--container > h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   margin: 0.5em;
-  align-self: center;
   text-align: center;
-  color: rgb(220, 123, 219);
-  text-shadow: 2px 2px 2px lightgray;
-}
-
-.header--container > div {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 5vh;
+  color: rgb(157, 34, 238);
+  text-shadow: 1.5px 1.5px 2px rgb(195, 144, 221);
 }
 
 .list--add--button__style {
-  border: 1px solid rgb(207, 180, 224);
+  border: 1px solid rgb(169, 90, 218);
   background-color: transparent;
   padding: 0.5em;
   color: black;
-  margin: 0.5em;
+  margin: 1em;
   font-size: 1.25em;
-  width: 25%;
-  text-align: center;
-  border-radius: 5px;
+  width: 20%;
+  border-radius: 1em;
 }
 
 .list--add--button__style:hover {
-  background: linear-gradient(rgb(217, 189, 234), rgb(180, 167, 224));
+  background-color: rgb(201, 127, 232);
   cursor: pointer;
-}
-
-#divStarter {
-  overflow-x: scroll;
-  padding: 1em;
-  margin: 1em;
-  width: 99vw;
-  display: flex;
-  flex-flow: row nowrap;
-  height: 50vh;
-  /* background-color: rgb(205, 242, 237); */
+  color: white;
 }
 
 .all--notes--title--style {
@@ -68,65 +51,92 @@
 }
 
 .all--notes--title--style > h3 {
-  text-align: center;
-  font-size: 2em;
-  font-weight: 600;
+  font: 600 2.5em "Lucida Sans";
   color: rgb(221, 87, 170);
-  text-shadow: 1px 1px 1px lightcoral;
+  text-shadow: 1px 1px 1px rgb(241, 162, 162);
+}
+
+#divStarter {
+  overflow-x: scroll;
+  display: flex;
+  height: 50em;
+  width: 95%;
+  padding: 2em;
+  margin: 2em;
 }
 
 .note--container {
   border: 1px solid black;
-  padding: 0.5em;
   min-width: 45em;
-  margin: 1em;
-  border-radius: 10px;
+  margin: 1.1em;
+  border-radius: 1em;
   overflow-y: scroll;
-  box-shadow: 15px 10px 5px grey;
+  box-shadow: 1em 1em .5em grey;
 }
 
 .title--input__style {
   border: none;
-  background: transparent;
-  text-align: center;
   color: rgb(140, 28, 231);
   padding: 0.5em;
-  margin: 0.5em;
-  font-size: 3em;
-  width: fit-content;
-  width: 85%;
-  outline: none;
-}
-
-.dont--edit--title {
-  pointer-events: none;
-}
-
-.close--note {
-  color: black;
-  background: transparent;
-  border: 1px solid lightslategray;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  top: -4em;
-  right: -1em;
-}
-
-.close--note:hover {
-  background-color: rgb(152, 147, 147);
-  cursor: pointer;
+  margin: .75em;
+  font-size: 2.5em;
+  width: 70%;
 }
 
 .title--input__style:focus {
   outline: none;
-  border-bottom: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 10px 10px 5px lightgray;
+  border: .5px solid black;
+  border-radius: .5em;
+  box-shadow: .5em .5em .5em lightgray;
+}
+
+.close--note {
+  background: transparent;
+  border: 1px solid lightslategray;
+  border-radius: 1em;
+  padding: .5em;
+  width: 8%;
+  height: 8%;
+  position: relative;
+  top: -2em;
+  left: 5em;
+}
+
+.close--note:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(231, 85, 85);
+  box-shadow: .5em .5em .5em lightslategrey;
+}
+
+.button--time--style {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.addButton--note {
+  border: 1px solid rgb(222, 139, 245);
+  border-radius: 1em;
+  background-color: transparent;
+  width: 20%;
+  font-size: 1.5em;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.addButton--note:hover {
+  background-color: rgb(201, 127, 232);
+  cursor: pointer;
+  color: white;
+}
+
+.getTime {
+  font: 1.5em "Lucida Sans";
 }
 
 .notes--input {
-  padding: 1em;
+  padding: .75em;
   margin: 1em;
   display: flex;
   justify-content: space-evenly;
@@ -135,71 +145,47 @@
 }
 
 .note--checkbox {
-  margin: 0.5em;
+  margin: 1em;
+  width: 2em;
+  height: 2em;
   cursor: pointer;
 }
 
+/* .note--checkbox:checked{
+  background-color: lightblue;
+  color: black;
+  border: .1em solid lightblue;
+} */
+
 .specific-note__style {
   margin: 0.5em;
-  padding: 0.75em;
-  width: 80%;
+  padding: 0.5em;
+  width: 75%;
   font-size: 1.5em;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 1em;
 }
 
 .specific-note__style:focus {
   outline: none;
-  border: 0.5px solid black;
-  box-shadow: 5px 5px 5px lightslategrey;
+  border: .05em solid black;
+  box-shadow: .5em .5em .5em lightslategrey;
 }
 
 .strike--task {
   text-decoration: line-through;
 }
 
-.button--time--style {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.addButton--note {
-  border: 1px solid rgb(222, 139, 245);
-  border-radius: 5px;
-  background-color: transparent;
-  width: 25%;
-  font-size: 1.5em;
-  text-align: center;
-  padding: 0.5em;
-  margin: 0.5em;
-  align-self: center;
-}
-
-.addButton--note:hover {
-  background-color: rgb(222, 199, 232);
-  cursor: pointer;
-}
-
-.getTime {
-  font-size: 1.5em;
-  font-weight: 500;
-  border: 0.5px solid lightgrey;
-  border-radius: 5px;
-}
-
 .footer--container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
-  margin: 1em;
-  height: 10vh;
+  padding: 3em;
+  margin: 2em;
   background: linear-gradient(rgb(238, 228, 242), rgb(234, 164, 198));
-  border-radius: 5px;
+  border-radius: 1em;
 }
 
 .footer--container > h4 {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 600;
+  text-align: center;
+  color: rgb(149, 31, 208);
 }

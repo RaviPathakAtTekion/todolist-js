@@ -4,7 +4,7 @@ import removeNote from "./removeNote.js";
 import getInputContent from "./getInputContent.js";
 import changeTaskStatus from "./changeTaskStatus.js";
 
-const eventDelegation = () => {
+const createEventsHandler = () => {
   noteAddingDiv.addEventListener("click", (e) => {
     if (e.target.className === "addButton--note") {
 
@@ -49,4 +49,4 @@ const eventDelegation = () => {
   });
 };
 
-export default eventDelegation;
+export default createEventsHandler;

@@ -1,6 +1,6 @@
 import insertTask from "./insertTask.js";
 
-const setValuesForExistingNote = (Id, mainDiv, note) => {
+const setExistingData = (Id, mainDiv, note) => {
 
   const noteObject = Object.entries(note);
   noteObject.forEach(([key, _]) => {
@@ -52,4 +52,4 @@ const setValuesForExistingNote = (Id, mainDiv, note) => {
   });
 };
 
-export default setValuesForExistingNote;
+export default setExistingData;

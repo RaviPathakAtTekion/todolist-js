@@ -1,7 +1,7 @@
 import { NoteArray } from "./data.js";
 import addNote from "./addNote.js";
 
-const showDataIfPresent = () => {
+const checkDataPresence = () => {
 
     NoteArray.map((note) => {
         if(note !== null){
@@ -10,4 +10,4 @@ const showDataIfPresent = () => {
     });
 }
 
-export default showDataIfPresent;
+export default checkDataPresence;

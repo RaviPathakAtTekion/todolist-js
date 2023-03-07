@@ -5,12 +5,12 @@ import {
 import addNote from "./addNote.js";
 import { getNumberOfNotes } from "./noOfNotes.js";
 import timeStamp from "./getTimeStamp.js";
-import eventDelegation from "./eventDelegation.js";
-import showDataIfPresent from "./showDataifPresent.js";
+import checkDataPresence from "./checkDataPresence.js";
+import createEventsHandler from "./createEventsHandler.js";
 
-NoteArray.length > 0 ? showDataIfPresent() : '';
+NoteArray.length > 0 ? checkDataPresence() : '';
 
-eventDelegation();
+createEventsHandler();
 
 createNote.addEventListener("click", () => {
   const timeObject = timeStamp();

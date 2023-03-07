@@ -10,7 +10,6 @@ const changeTaskStatus = (e, status) => {
     if(NoteArray[divId - 1]['task'][taskId]['completedStatus'] === false){
         NoteArray[divId - 1]['task'][taskId]['completedStatus'] = true;
     }
-    
 
     localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
     e.target.parentElement.childNodes[0].checked = true;
