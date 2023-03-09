@@ -1,34 +1,35 @@
-import { NoteArray, changeId } from "./data.js";
+import { notes } from "./data.js";
 
 const setNoteToArray = (mainDiv, noteMakingTime) => {
-  const Note = makeNoteObject(mainDiv.dataset.setId, noteMakingTime);
-  changeId();
+  const note = makeNoteObject(mainDiv.dataset.setId, noteMakingTime);
+  notes.push(note);
 
-  NoteArray.push(Note);
-
-  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  localStorage.setItem("notes", JSON.stringify(notes));
 };
 
-const addTasksToNoteArray = (workingNoteId, divId) => {
+const addTasksToNotes = (workingNoteId, divId) => {
   const newTask = {
     id: divId,
     content: "",
     completedStatus: false,
   };
-  NoteArray[workingNoteId - 1]['task'].push(newTask);
-  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  notes[workingNoteId - 1]['tasks'].push(newTask);
+  localStorage.setItem("notes", JSON.stringify(notes));
   
 };
 
 const addTitleToNote = (divId, title = "") => {
-  NoteArray[divId - 1]["title"] = title;
-  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  notes[divId - 1]["title"] = title;
+  localStorage.setItem("notes", JSON.stringify(notes));
+
+  window.location.reload();
 };
 
 const addMessageToTask = (divId, taskNumber, message = "") => {
-  NoteArray[divId - 1]["task"][taskNumber - 1]["content"] = message;
 
-  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  notes[divId - 1]["tasks"][taskNumber - 1]["content"] = message;
+
+  localStorage.setItem("notes", JSON.stringify(notes));
 };
 
 const removeNoteFromArray = () => {};
@@ -37,7 +38,7 @@ const makeNoteObject = (setId, timeObject) => {
   const newNote = {
     title: ``,
     id: setId,
-    task: [],
+    tasks: [],
     timeStamp: {
       time: timeObject.time,
       date: timeObject.date,
@@ -49,7 +50,7 @@ const makeNoteObject = (setId, timeObject) => {
 export {
   setNoteToArray,
   removeNoteFromArray,
-  addTasksToNoteArray,
+  addTasksToNotes,
   addTitleToNote,
   addMessageToTask,
 };

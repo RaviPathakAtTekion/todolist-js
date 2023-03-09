@@ -1,27 +1,17 @@
 import { changeTaskDiv } from "./data.js";
 import currentTaskNumberFunction from "./CurrentTaskNumber.js";
-import insertTask from "./insertTask.js";
-import { addTasksToNoteArray } from "./getAndSetLocalStorage.js";
+import { addTasksToNotes } from "./getAndSetLocalStorage.js";
+import { creationFunction, assignAttributes } from "./getTaskcreationData.js";
 
 const addTask = (e) => {
-  const div = document.createElement("div");
-  const checkbox = document.createElement("input");
-  const input = document.createElement("input");
-
-  div.className = "notes--input";
+  const { div, checkbox, input } = creationFunction();
   const workingDiv = e.target.parentElement.parentElement.dataset.setId;
-
-  let currentTaskNumber = currentTaskNumberFunction(e);
   
-  div.id = `div${workingDiv}task${currentTaskNumber}`;
+  const currentTaskNumber = currentTaskNumberFunction(workingDiv);
+  const divId = `div${workingDiv}task${currentTaskNumber}`;
 
-  checkbox.type = "checkbox";
-  checkbox.className = "note--checkbox";
 
-  input.type = "text";
-  input.placeholder = `${currentTaskNumber}`;
-  input.className = "specific-note__style";
-  input.id = `task${currentTaskNumber}`;
+  assignAttributes(div, checkbox, input, divId, currentTaskNumber);
 
   div.appendChild(checkbox);
   div.appendChild(input);
@@ -30,13 +20,11 @@ const addTask = (e) => {
 
   changeTaskDiv(document.getElementById(`divAppender${currentDiv}`));
 
-  let taskAddingDiv = document.getElementById(`divAppender${currentDiv}`);
+  const taskAddingDiv = document.getElementById(`divAppender${currentDiv}`);
 
-  const insertingPosition = insertTask(e.target);
+  taskAddingDiv.prepend(div);
 
-  taskAddingDiv.insertBefore(div, insertingPosition);
-
-  addTasksToNoteArray(workingDiv, div.id);
+  addTasksToNotes(workingDiv, div.id);
 };
 
 export default addTask;

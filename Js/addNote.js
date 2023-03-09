@@ -1,6 +1,7 @@
-import { noteAddingDiv, changeId } from "./data.js";
-import { getNumberOfNotes } from "./noOfNotes.js";
+import { noteAddingDiv } from "./data.js";
 import { setNoteToArray } from "./getAndSetLocalStorage.js";
+import getId from "./getId.js";
+import getNumberOfNotes from "./noOfNotes.js";
 import setExistingData from "./setExistingData.js";
 
 const addNote = (noteMakingTime, anyId, note = "") => {
@@ -13,16 +14,10 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   const addButton = document.createElement("button");
   const timeStamp = document.createElement("p");
 
-  let newInitialId = -1;
-
-  if (newInitialId === anyId) {
-    newInitialId = changeId();
-  } else {
-    newInitialId = anyId;
-  }
+  const newInitialId = getId(anyId);
 
   outerDiv.id = `div${newInitialId}`;
-  outerDiv.className = "note--container";
+  outerDiv.classList.add("note--container");
   outerDiv.dataset.setId = `${newInitialId}`;
 
   titleInput.className = "title--input__style";
@@ -30,15 +25,8 @@ const addNote = (noteMakingTime, anyId, note = "") => {
   titleInput.id = `div${newInitialId}Title`;
   titleInput.value = "";
 
-  if (newInitialId === anyId) {
-    if (note !== null && note["title"].length === 0) {
-      titleInput.placeholder = "Title";
-    } else {
-      titleInput.value = note["title"];
-    }
-  } else {
-    titleInput.placeholder = "Title";
-  }
+  titleInput.value = note['title'] ? note['title'] : '';
+  titleInput.placeholder = 'Title';
 
   closeButton.className = "close--note";
   closeButton.type = "button";
@@ -66,13 +54,14 @@ const addNote = (noteMakingTime, anyId, note = "") => {
 
   outerDiv.appendChild(innerDiv);
 
-  noteAddingDiv.appendChild(outerDiv);
+  noteAddingDiv.prepend(outerDiv);
   
   if (anyId === newInitialId) {
-    setExistingData(newInitialId, outerDiv, note);
+    setExistingData(newInitialId, note)
   } else {
     setNoteToArray(outerDiv, noteMakingTime);
   }
+
   getNumberOfNotes();
 };
 

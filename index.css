@@ -5,7 +5,15 @@
   font-size: 10px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+html {
   overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
 }
 
 .header--container {
@@ -13,11 +21,16 @@
   background: url("./wallpapersden.com_artistic-landscape-view_1920x1080.jpg")
     no-repeat;
   background-size: cover;
-  border-radius: .5em;
+  border-radius: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .header--container > h1 {
@@ -48,6 +61,7 @@
 .all--notes--title--style {
   padding: 1em;
   margin: 1em;
+  margin-top: 20em;
 }
 
 .all--notes--title--style > h3 {
@@ -63,50 +77,55 @@
   width: 95%;
   padding: 2em;
   margin: 2em;
+  margin-bottom: 10em;
 }
 
 .note--container {
   border: 1px solid black;
-  min-width: 45em;
+  min-width: 30em;
   margin: 1.1em;
   border-radius: 1em;
   overflow-y: scroll;
-  box-shadow: 1em 1em .5em grey;
+}
+
+.addBox--style {
+  box-shadow: 1em 1em 0.5em grey;
+  border: 2px solid rgb(124, 26, 216);
 }
 
 .title--input__style {
   border: none;
   color: rgb(140, 28, 231);
   padding: 0.5em;
-  margin: .75em;
+  margin: 0.75em;
   font-size: 2.5em;
   width: 70%;
 }
 
 .title--input__style:focus {
   outline: none;
-  border: .5px solid black;
-  border-radius: .5em;
-  box-shadow: .5em .5em .5em lightgray;
+  border: 0.5px solid black;
+  border-radius: 0.5em;
+  box-shadow: 0.5em 0.5em 0.5em lightgray;
 }
 
 .close--note {
   background: transparent;
   border: 1px solid lightslategray;
   border-radius: 1em;
-  padding: .5em;
+  padding: 0.5em;
   width: 8%;
   height: 8%;
   position: relative;
-  top: -2em;
-  left: 5em;
+  top: -3em;
+  left: 2em;
 }
 
 .close--note:hover {
   cursor: pointer;
   color: white;
   background-color: rgb(231, 85, 85);
-  box-shadow: .5em .5em .5em lightslategrey;
+  box-shadow: 0.5em 0.5em 0.5em lightslategrey;
 }
 
 .button--time--style {
@@ -136,7 +155,7 @@
 }
 
 .notes--input {
-  padding: .75em;
+  padding: 0.75em;
   margin: 1em;
   display: flex;
   justify-content: space-evenly;
@@ -151,12 +170,6 @@
   cursor: pointer;
 }
 
-/* .note--checkbox:checked{
-  background-color: lightblue;
-  color: black;
-  border: .1em solid lightblue;
-} */
-
 .specific-note__style {
   margin: 0.5em;
   padding: 0.5em;
@@ -168,8 +181,8 @@
 
 .specific-note__style:focus {
   outline: none;
-  border: .05em solid black;
-  box-shadow: .5em .5em .5em lightslategrey;
+  border: 0.05em solid black;
+  box-shadow: 0.5em 0.5em 0.5em lightslategrey;
 }
 
 .strike--task {
@@ -179,8 +192,13 @@
 .footer--container {
   padding: 3em;
   margin: 2em;
+  /* margin-top: 5em; */
   background: linear-gradient(rgb(238, 228, 242), rgb(234, 164, 198));
   border-radius: 1em;
+  position: fixed;
+  bottom: 0;
+  min-width: -webkit-fill-available;
+  z-index: 100;
 }
 
 .footer--container > h4 {
@@ -188,4 +206,10 @@
   font-weight: 600;
   text-align: center;
   color: rgb(149, 31, 208);
+}
+
+@media (max-width : 380px){
+  .all--notes--title--style {
+    margin-top: 23em;
+  }
 }

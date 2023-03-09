@@ -1,11 +1,11 @@
-import { NoteArray } from "./data.js";
-import { getNumberOfNotes } from "./noOfNotes.js";
+import { notes } from "./data.js";
+import getNumberOfNotes from "./noOfNotes.js";
 
 const removeNote = (e, id) => {
   
-  NoteArray[id - 1] ? NoteArray[id - 1] = null : id - 1;
+  notes[id - 1] ? notes[id - 1] = null : id - 1;
   
-  localStorage.setItem("NoteArray", JSON.stringify(NoteArray));
+  localStorage.setItem("notes", JSON.stringify(notes));
   window.location.reload();
   getNumberOfNotes();
 };

@@ -1,4 +1,4 @@
-import { NoteArray } from "./data.js";
+import { notes } from "./data.js";
 
 const changeTaskStatus = (e, status) => {
   if (status) {
@@ -7,11 +7,11 @@ const changeTaskStatus = (e, status) => {
     const divId = e.target.parentElement.parentElement.parentElement.dataset.setId;
     const taskId = e.target.parentElement.childNodes[1].id.substring(4);
     
-    if(NoteArray[divId - 1]['task'][taskId]['completedStatus'] === false){
-        NoteArray[divId - 1]['task'][taskId]['completedStatus'] = true;
+    if(notes[divId - 1]['tasks'][taskId - 1]['completedStatus'] === false){
+        notes[divId - 1]['tasks'][taskId - 1]['completedStatus'] = true;
     }
 
-    localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
+    localStorage.setItem('notes', JSON.stringify(notes));
     e.target.parentElement.childNodes[0].checked = true;
     
   } else {
@@ -20,11 +20,11 @@ const changeTaskStatus = (e, status) => {
     const divId = e.target.parentElement.parentElement.parentElement.dataset.setId;
     const taskId = e.target.parentElement.childNodes[1].id.substring(4);
     
-    if(NoteArray[divId - 1]['task'][taskId]['completedStatus'] === true){
-        NoteArray[divId - 1]['task'][taskId]['completedStatus'] = false;
+    if(notes[divId - 1]['tasks'][taskId - 1]['completedStatus'] === true){
+        notes[divId - 1]['tasks'][taskId - 1]['completedStatus'] = false;
     }
 
-    localStorage.setItem('NoteArray', JSON.stringify(NoteArray));
+    localStorage.setItem('notes', JSON.stringify(notes));
     e.target.parentElement.childNodes[0].checked = false;
   }
 };

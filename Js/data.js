@@ -12,17 +12,17 @@ const noOfNotes = document.getElementById("changeNoOfNotes");
 
 const timePara = document.getElementsByClassName("getTime")[0];
 
-let NoteArray = JSON.parse(localStorage.getItem('NoteArray'));
+let notes = JSON.parse(localStorage.getItem('notes'));
 
 let initialId = 0;
 
-if(NoteArray === null){
-  NoteArray = [];
+if(notes === null){
+  notes = [];
 }
 
 const trueNotes = () => {
   let countTrueNotes = 0;
-  NoteArray.map(note => {
+  notes.map(note => {
     if(note !== null){
       countTrueNotes++;
     }
@@ -31,8 +31,7 @@ const trueNotes = () => {
 }
 
 const changeId = () => {
-
-  return NoteArray === null ? 0 : NoteArray.length + 1;
+  return notes === null ? 0 : notes.length + 1;
 }
 
 const changeTaskDiv = (value) => {
@@ -44,7 +43,7 @@ const changeTaskButtonId = (id) => {
 };
 
 export {
-  NoteArray, 
+  notes, 
   initialId,
   timePara,
   changeNotesNumber,
